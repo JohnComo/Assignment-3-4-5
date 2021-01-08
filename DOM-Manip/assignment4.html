@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assignment4.css">
+</head>
+
+<body>
+    <button type="button" id="button1" onclick="return imRight()"> Button 1 </button> 
+    <button type="button" id="button2" onclick="return noImRight()"> Button 2 </button> 
+    <h1 id="q1"> Who is right </h1>
+    <p id="hovering" ><big> Don't Hover Over Me</big></p>
+
+
+    <script src="assingment4.js" ></script> 
+</body>
+
+<form onsubmit = "return passwordCheck()"> 
+    <label for="username"> Username </label><br> 
+    <input type="text" id ="username" username="username"><br>
+    <label for="email"> E-mail</label><br>
+    <input type="text" id="text" email="email"><br> 
+    <label for="password"> Password</label><br>
+    <input type="text" id="password" password="password"><br>
+    <input type="submit" value="Submit"><br>
+    <br>
+</form>
+
+<form onsubmit = "return sphere()">
+    <label for="radius" id="radius"> Radius </label><br>
+    <input type="text" id="radius" radius="radius"><br> 
+    <input type="submit" value="Find Volume"><br>
+    <br>
+    <p id="result"></p>
+</form>
+
+</html>
+
