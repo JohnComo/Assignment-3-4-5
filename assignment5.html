@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assingment 5</title>
+    <link rel="stylesheet" href = "assingment5.css">
+</head>
+<body>
+    <div class = "container"> 
+        <h1> Welcome to the Customizable Grid</h1>
+    </div>
+    <div class = "container">
+        <div class = "setMargin">
+            <button type = "button" class = "myButton" onclick="addRow()" > Add Row</button>
+        </div>
+        <div class = "setMargin">
+            <button type = "button" class = "myButton" onclick="addCol()" > Add Column</button>
+        </div>
+        <div class = "setMargin">
+            <button type = "button" class = "myButton" onclick="delRow()" > Delete Row</button>
+        </div>
+        <form class = "setMargin">
+            <button type = "button" class = "myButton" onclick="delCol()" > Delete Column</button>
+        </form>
+        <div class="setMargin">
+            <select class = "myButton" id="color" onchange="setColor(this.value)">
+                <option value="#3A81F1">Blue</option>
+                <option value="#2DA94F">Green</option>
+                <option value="#FDBD00">Yellow</option>
+                <option value="#EA4335">Red</option>
+                <option value="#5F6368">Grey</option>
+                <option value="#000000">Black</option>
+            </select>
+        </div>
+    </div>
+    <div class = "container">
+        <div class ="setMargin">
+            <button type = "button" class = "myButton" onclick = "uncolor()" > Fill </button>
+        </div>
+        <div class = "setMargin">
+            <button type ="button" class ="myButton" onclick = "color()" > Fill All</button>
+        </div>
+        <div class = "setMargin">
+            <button type = "button" class = "myButton" onclick = "clear()"> Clear Grid</button>
+        </div>
+    </div>
+    <div class = "container">
+        <table id = "grid">
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <script src="assingment5.js"></script>
+</body>
+</html>
