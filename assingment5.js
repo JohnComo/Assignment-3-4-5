@@ -1,63 +1,84 @@
-let rows = 1
-let cols = 1
-let hoverColored = false 
+let numRow = 1;
+let numCol = 1;
+let hoverColor =false;
 
-let beginning = document.getElementById("td")
-let growingBeginning = [...beginning]
+let startCell = document.getElementsByTagName("td");
+let startCellList = [...startCell];
 
-for (let i = 0; i < growingBeginning.length ; i++){ 
-    gridInteraction(growingBeginning[i])
+for(let i =0; i <startCellList.length;i++){
+    gridInteraction(startCellList[i]);
 }
 
-//add rows 
-function addRow() { 
-    let grid = document.querySelector('#grid')
-    let newRow = document.createElement("tr")
+//addrows
+function addRow(){
+    let main = document.querySelector("#main-grid");
 
-    for(let i = 0; i  < cols; i++){ 
-        let newCell = document.creteElement("td")
-        gridInteraction(newCell)
-        newRow.appendChild(newCell)
+    let newRow = document.createElement("tr");
+
+    for(let i = 0; i < numCol; i++){
+        let newCell = document.createElement("td");
+        gridInteraction(newCell);
+
+        newRow.appendChild(newCell);
     }
-    grid.appendChild(newRow)
-    rows++
+    main.appendChild(newRow);
+    numRow++;
 }
 
 //add columns
-function addCol(){ 
-    let grid = document.getElementById('#grid')
-    let rows = document.getElementById("tr")
-    let curCols = 0
+function addCol(){
+    let main = document.querySelector("#main-grid");
 
-    for (let i = 0; i < numRows; i++){ 
-        let newCell = document.createElement("td")
-        gridInteraction(newCell)
-        rows[curCols].appendChild(newCell)
-        curCols ++
+    let rows = document.querySelectorAll("tr");
+
+    let counter = 0;
+
+    for(let i =0; i< numRow;i++){
+        let newCell = document.createElement("td");
+        gridInteraction(newCell); 
+        rows[counter].appendChild(newCell);
+
+        counter++;
     }
-    cols++
+    numCol++;
+
 }
 
-function delCol(){ 
-    let deleteColumn = document.querySelector('#grid')
-    let rows = document.querySelectorAll("tr")
-    let num = 0
+//deleting row
+function removeRow(){
 
-    for (let i = 0; i < rows; i++){ 
-        rows[num].removeChild(rows[num].lastChild)
-        num++
-    }
-    cols--
+    let removeR = document.querySelector("#main-grid");
+    removeR.deleteRow(numRow-1);
+    numRow--;
 }
 
-//Adding Color by click and hover
+
+//deleting cols
+function removeCol(){
+    let removeC = document.querySelector("#main-grid");
+    let rows = document.querySelectorAll("tr");
+
+    let counter = 0;
+
+    for(let i = 0; i < numRow; i++){
+        rows[counter].removeChild(rows[counter].lastChild);
+        counter++;
+    }
+    numCol--;
+}
+
+//coloring on click
 let CurrentColor = document.getElementById("color").value;
 
 function gridInteraction(cell){
+    //change color after click
     cell.addEventListener("click", settingColor)
     cell.classList.add("no-color");
 
+
+    // hover functionality
     cell.addEventListener("mousedown", element =>{ hoverColor = true;});
+
     cell.addEventListener("mousemove", element => {
         if(hoverColor){
             cell.style.backgroundColor = CurrentColor;
@@ -70,37 +91,45 @@ function gridInteraction(cell){
             hoverColor = false;
         }
     });
+
+
 }
 
-//Background
+//background
 function settingColor(){
     this.style.backgroundColor = CurrentColor;
     this.classList.remove("no-color")
 }
 
+//color change
 function setColor(color){
     CurrentColor = color;
 }
 
-//fill uncolored
+
+//fill 
 function setUncoloredGrid(){
     let cells = document.getElementsByTagName("td");
     let allCells = [...cells];
 
+    //filter out colored grids
     let noColor = allCells.filter(cell => {return cell.classList.contains("no-color")});
+
+    //setting color for uncolored squares
     noColor.forEach(cell => { cell.style.backgroundColor = CurrentColor; cell.classList.remove("no-color")});
+
 }
 
-// fill all squares
+//fill squares
 function setAllGrid(){
+    //saving all grid locations
     let cells = document.getElementsByTagName("td");
     let allCells = [...cells];
-
     allCells.forEach(cell => { cell.style.backgroundColor = CurrentColor; cell.classList.remove("no-color")});
 
 }
 
-// clear all colors
+//Adding function to clear all colors
 function clearAllGrid(){
     let cells = document.getElementsByTagName("td");
     let allCells = [...cells];
