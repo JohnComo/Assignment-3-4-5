@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment-5</title>
+    <link rel="stylesheet" href="assingment5.css">
+</head>
+<body>
+    <div class = "container">
+        <h1>Welcome to the Customizable Grid!</h1>
+    </div>
+    <div class = "container">
+        <div class = "setMargin"> 
+        <button type="button"class="myButton" onclick="addRow()">Add Row</button>
+        </div>
+        <div class = "setMargin">
+        <button type="button"class="myButton" onclick="addCol()">Add Column</button>
+        </div>
+        <div class = "setMargin">
+        <button type="button"class="myButton" onclick="removeRow()">Remove Row</button>
+        </div>
+        <form class= "setMargin">
+            <button type="button"class="myButton" onclick="removeCol()">Remove Column</button>
+        </form>
+        <div class = "setMargin">
+            <select class="myButton" id="color" onchange="setColor(this.value)">
+                <option value="#3A81F1">Blue</option>
+                <option value="#2DA94F">Green</option>
+                <option value="#FDBD00">Yellow</option>
+                <option value="#EA4335">Red</option>
+                <option value="#5F6368">Grey</option>
+                <option value="#000000">Black</option>
+            </select>
+        </div>
+    </div>
+    <div class = "container">
+        <div class= "setMargin">
+            <button type="button"class="myButton" onclick="setUncoloredGrid()">Fill</button>
+        </div>
+        <div class = "setMargin">
+            <button type="button"class="myButton" onclick="setAllGrid()">Fill All</button>
+        </div>
+        <div class = "setMargin">
+            <button type="button"class="myButton" onclick="clearAllGrid()">Clear All</button>
+        </div>
+    </div>
+    <div class="container">
+        
+        <table id="main-grid">
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script src="assingment5.js"></script>
+</body>
+</html>
